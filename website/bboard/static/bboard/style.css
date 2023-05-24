@@ -1,0 +1,47 @@
+ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    padding: 0;
+    margin: 20px 0;
+}
+
+li{
+    list-style: none;
+}
+
+li a{
+    text-decoration: none;
+    color: #000;
+}
+
+li a:hover{
+    color: #156;
+}
+
+.bboard{
+    width: calc(100% / 2);
+}
+
+.bboard__title{
+    margin: 0;
+}
+
+.bboard__content{
+    margin: 0;
+}
+
+.bboard__price{
+    margin: 0;
+}
+
+.bboard__rubric{
+    color:red;
+    margin: 0;
+}
+
+.bboard__date{
+    margin: 0 0 15px 0;
+    border-bottom: 1px solid black;
+}
