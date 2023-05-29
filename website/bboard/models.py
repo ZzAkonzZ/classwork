@@ -12,6 +12,10 @@ class Rubric(models.Model):
         ordering = ['name']
 
 class Bb(models.Model):
+    KINDS = (('b', "Куплю"),
+             ('s', "Продам"),
+             ('c', "Обменяю"))
+    kind = models.CharField(max_length=1, choices=KINDS, default='s', verbose_name="Вид")
     rubric = models.ForeignKey(Rubric, null=True, on_delete=models.PROTECT, verbose_name='Рубрика')
     title = models.CharField(max_length=50, verbose_name='Загаловок')
     content = models.TextField(null=True, blank=True, verbose_name='Контент')
