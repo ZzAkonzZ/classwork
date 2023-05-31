@@ -2,11 +2,14 @@
 
 {% block content %}
 
+
 <a href="{% url 'add' %}">Добавить</a>
 
 <h1 class="title">Объявления</h1>
 {% for bb in bbs %}
 <div class="bboard">
+
+    {{ bb.title_and_price }}
     <h2 class="bboard__title">{{ bb.title }}</h2>
     <h6 class="bboard__rubric">{{ bb.rubric }}</h6>
     <p class="bboard__content">{{ bb.content }}</p>

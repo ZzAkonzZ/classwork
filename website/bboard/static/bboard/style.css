@@ -45,3 +45,7 @@ li a:hover{
     margin: 0 0 15px 0;
     border-bottom: 1px solid black;
 }
+
+.errorlist li{
+    color: red;
+}
