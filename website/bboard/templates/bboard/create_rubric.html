@@ -1,0 +1,18 @@
+{% extends "layouts/basic.html" %}
+
+{% block title %}Добавить рубрику{% endblock %}
+
+{% block content %}
+
+<form method="post">
+    {% csrf_token %}
+    <input type="text" name="name" placeholder="Название рубрики">
+    <input type="submit" value="Создать">
+</form>
+
+
+{% for rubric in rubrics %}
+    <li>{{ rubric.name }}</li>
+{% endfor %}
+
+{% endblock %}

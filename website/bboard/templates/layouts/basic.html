@@ -12,7 +12,7 @@
     <li><a href="{% url 'default-bboard:index' %}">Главная-default</a></li>
     <li><a href="{% url 'other-bboard:index' %}">Главная-other</a></li>
 {% for rubric in rubrics %}
-    <li><a href="rubric/{% url 'default-bboard:by_rubric' rubric.pk %}">{{ rubric.name }}</a></li>
+    <li><a href="{% url 'default-bboard:by_rubric' rubric.pk %}">{{ rubric.name }}</a></li>
 {% endfor %}
 </ul>
 

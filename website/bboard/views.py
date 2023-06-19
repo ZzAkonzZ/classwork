@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from .models import Bb, Rubric
 from django.views.generic.edit import CreateView
@@ -56,3 +56,16 @@ def l20_e1(request):
     resp.writelines((" страница", " сайта"))
     resp["keywords"] = 'Python, Django'
     return resp
+
+def create_rubric(request):
+    if request.method == "POST":
+        post = request.POST
+        rubric = Rubric(name = post['name'])
+
+        rubric.save()
+
+        return HttpResponseRedirect('/')
+    else:
+        template = loader.get_template('bboard/create_rubric.html')
+        rubrics = Rubric.objects.all()
+        return HttpResponse(template.render({'rubrics': rubrics}, request))

@@ -2,7 +2,9 @@
 
 {% block content %}
 
-<a href="{% url 'other-bboard:add' %}">Добавить</a>
+<a href="{% url 'other-bboard:add' %}">Добавить объявление</a>
+<br>
+<a href="{% url 'default-bboard:create_rubric' %}">Добавить Рубрику</a>
 
 <h1 class="title">Объявления</h1>
 {% for bb in bbs %}
