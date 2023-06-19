@@ -41,3 +41,18 @@ def by_rubric(request, rubric_id):
     # current_rubric = Rubric.objects.get(pk=rubric_id)
     # context = {'bbs': bbs, 'rubrics': rubrics, 'current_rubric':current_rubric}
     # return render(request, 'bboard/by_rubric.html', context)
+
+def form_example(request):
+    if request.method == 'POST':
+        # str = '<pre>' + str(request) + '</pre>'
+        return HttpResponse(request.POST['name'])
+    else:
+        template = loader.get_template('bboard/form_example.html')
+        return HttpResponse(template.render({}, request))
+
+def l20_e1(request):
+    resp = HttpResponse("Здесь будет")
+    resp.write(" главная")
+    resp.writelines((" страница", " сайта"))
+    resp["keywords"] = 'Python, Django'
+    return resp
