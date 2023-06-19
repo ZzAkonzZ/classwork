@@ -2,8 +2,7 @@
 
 {% block content %}
 
-
-<a href="{% url 'add' %}">Добавить</a>
+<a href="{% url 'other-bboard:add' %}">Добавить</a>
 
 <h1 class="title">Объявления</h1>
 {% for bb in bbs %}
@@ -16,6 +15,10 @@
     <p class="bboard__price">Цена: {{ bb.price }}</p>
     <p class="bboard__date">{{ bb.published|date:"d.m.Y H:i:s" }}</p>
 </div>
+{% endfor %}
+
+{% for page in pages %}
+    <a href="{% url 'default-bboard:index' %}{{page}}">{{ page }}</a>
 {% endfor %}
 
 {% endblock %}

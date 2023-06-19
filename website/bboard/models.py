@@ -1,5 +1,6 @@
 from django.db import models
 from django.core import validators
+from django.contrib.auth.models import User
 
 class Rubric(models.Model):
     name = models.CharField(max_length=20, db_index=True, verbose_name='Название')
@@ -33,4 +34,37 @@ class Bb(models.Model):
         verbose_name_plural = 'Объявления'
         verbose_name = 'Объявление'
         ordering = ['-published']
+
+
+
+
+
+
+
+
+
+
+[
+    {"title": "r1", "bbs":
+        [
+            {"title":"bb1", "content":"cbb1", "price":7},
+            {"title":"bb1", "content":"cbb1", "price":7},
+            {"title":"bb1", "content":"cbb1", "price":7},
+        ]
+    },
+
+    {"title": "r2", "bbs":
+        [
+            {"title":"bb2", "content": "cbb1", "price": 7},
+            {"title":"bb2", "content":"cbb1", "price":7},
+            {"title":"bb2", "content":"cbb1", "price":7},
+        ]
+     }
+]
+
+
+
+
+
+
 

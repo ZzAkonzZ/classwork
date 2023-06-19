@@ -9,17 +9,23 @@ class BbCreateView(CreateView):
     template_name = 'bboard/create.html'
     form_class = BbForm
     success_url = reverse_lazy('index')
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['rubrics'] = Rubric.objects.all()
         return context
 
-def index(request):
+def index(request, page_num='1/'):
     template = loader.get_template('bboard/index.html')
+
+    limit = 2
+    bbs_per_page = int(page_num[:-1]) * limit
+
     bbs = Bb.objects.order_by('-published')
+    pages = [i for i in range(1, round(len(bbs) / limit) + 1)]
+    bbs = bbs[bbs_per_page-limit:bbs_per_page]
+
     rubrics = Rubric.objects.all()
-    context = {'bbs':bbs, 'rubrics': rubrics}
+    context = {'bbs':bbs, 'rubrics': rubrics, 'pages': pages}
     return HttpResponse(template.render(context, request))
 
 def by_rubric(request, rubric_id):
